@@ -157,7 +157,7 @@ for %%a in (%iniOptions%) do set %%aINI=0
 
 if exist %ini% (
     rem Set INI options to what's found in the inifile
-    for /f "delims== tokens=1,2" %%x in (%ini%) do if not "%%y"=="" set %%xINT=%%y
+    for /f "delims== tokens=1,2" %%x in (%ini%) do if not "%%y"=="" set %%xINI=%%y
 ) else set deleteIni=1
 
 setlocal EnableDelayedExpansion
