@@ -1,0 +1,12 @@
+version: 1.0.{build}
+image: Visual Studio 2022
+
+environment:
+  PATH: $(PATH);C:\msys64\usr\bin;C:\msys64\mingw64\bin;C:\msys64\opt\bin
+
+clone_script:
+  - git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+  - git checkout -qf %APPVEYOR_REPO_COMMIT%
+
+build_script:
+  - media-autobuild_suite.bat
