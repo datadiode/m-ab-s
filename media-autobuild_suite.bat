@@ -157,16 +157,7 @@ for %%a in (%iniOptions%) do set %%aINI=0
 
 if exist %ini% (
     rem Set INI options to what's found in the inifile
-    echo.foreach ($option in $env:iniOptions.split(" "^)^) { ^
-        $m = Select-String -Path $env:ini -CaseSensitive -SimpleMatch -Pattern $option; ^
-        if ($null -ne $m^) { ^
-            Write-Output "set `"${option}INI^=$($m.Line.Split("="^, 2^)[1]^)`"" ^
-        } else { ^
-            Write-Output "set `"${option}INI^=0^`"" ^
-        } ^
-    } | powershell -NoProfile -Command - > %build%\options.bat
-    call %build%\options.bat
-    del %build%\options.bat
+    for /f "delims== tokens=1,2" %%x in (%ini%) do if not "%%y"=="" set %%xINT=%%y
 ) else set deleteIni=1
 
 setlocal EnableDelayedExpansion
