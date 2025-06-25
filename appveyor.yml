@@ -9,4 +9,5 @@ clone_script:
   - git checkout -qf %APPVEYOR_REPO_COMMIT%
 
 build_script:
+  - mklink /D msys64 C:\msys64
   - media-autobuild_suite.bat
