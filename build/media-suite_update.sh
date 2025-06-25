@@ -149,33 +149,33 @@ if [[ -f /etc/pac-base.pk && -f /etc/pac-mingw.pk ]] && ! [[ $build32 == "yes" &
     mapfile -t install < <(diff --changed-group-format='%>' --unchanged-group-format='' "$old" "$new")
     mapfile -t uninstall < <(diff --changed-group-format='%<' --unchanged-group-format='' "$old" "$new")
 
-    if [[ ${#uninstall[@]} -gt 0 ]]; then
-        echo
-        echo "-------------------------------------------------------------------------------"
-        echo "You have more packages than needed!"
-        echo "Do you want to remove them?"
-        echo "-------------------------------------------------------------------------------"
-        echo
-        echo "Remove:"
-        echo "${uninstall[*]}"
-        while true; do
-            read -r -p "remove packs [y/n]? " yn
-            case $yn in
-            [Yy]*)
-                pacman -Rs --noconfirm "${uninstall[@]}" >&2 2> /dev/null
-                for pkg in "${uninstall[@]}"; do
-                    pacman -Qs "^${pkg}$" && pacman -D --noconfirm --asdeps "$pkg" > /dev/null
-                done
-                break
-                ;;
-            [Nn]*)
-                pacman --noconfirm -D --asdeps "${uninstall[@]}"
-                break
-                ;;
-            *) echo "Please answer yes or no" ;;
-            esac
-        done
-    fi
+    # if [[ ${#uninstall[@]} -gt 0 ]]; then
+        # echo
+        # echo "-------------------------------------------------------------------------------"
+        # echo "You have more packages than needed!"
+        # echo "Do you want to remove them?"
+        # echo "-------------------------------------------------------------------------------"
+        # echo
+        # echo "Remove:"
+        # echo "${uninstall[*]}"
+        # while true; do
+            # read -r -p "remove packs [y/n]? " yn
+            # case $yn in
+            # [Yy]*)
+                # pacman -Rs --noconfirm "${uninstall[@]}" >&2 2> /dev/null
+                # for pkg in "${uninstall[@]}"; do
+                    # pacman -Qs "^${pkg}$" && pacman -D --noconfirm --asdeps "$pkg" > /dev/null
+                # done
+                # break
+                # ;;
+            # [Nn]*)
+                # pacman --noconfirm -D --asdeps "${uninstall[@]}"
+                # break
+                # ;;
+            # *) echo "Please answer yes or no" ;;
+            # esac
+        # done
+    # fi
     if [[ ${#install[@]} -gt 0 ]]; then
         echo "You're missing some packages!"
         echo "Proceeding with installation..."
