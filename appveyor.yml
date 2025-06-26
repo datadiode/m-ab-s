@@ -4,6 +4,9 @@ image: Visual Studio 2022
 environment:
   PATH: $(PATH);C:\msys64\usr\bin;C:\msys64\mingw64\bin;C:\msys64\opt\bin
 
+install:
+  - pacman -S --noconfirm --needed mingw-w64-pkgconf
+
 clone_script:
   - git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
   - git checkout -qf %APPVEYOR_REPO_COMMIT%
