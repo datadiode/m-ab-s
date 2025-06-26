@@ -13,4 +13,5 @@ clone_script:
 
 build_script:
   - mklink /D msys64 C:\msys64
+  - mklink /D C:\mingw64 C:\msys64\mingw64
   - media-autobuild_suite.bat
