@@ -11,9 +11,10 @@ install:
   - where autoreconf
 
 clone_script:
-  # - git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
-  # - git checkout -qf %APPVEYOR_REPO_COMMIT%
+  - git config --global core.autocrlf false
+  - git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+  - git checkout -qf %APPVEYOR_REPO_COMMIT%
 
 build_script:
   - mklink /D msys64 C:\msys64
-  # - media-autobuild_suite.bat
+  - media-autobuild_suite.bat
