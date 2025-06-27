@@ -6,7 +6,7 @@ environment:
   MINGW_PREFIX: C:\msys64\mingw64
 
 install:
-  - pacman -S --noconfirm --needed pkgconf
+  - pacman -S --noconfirm --needed base-devel pkgconf
 
 clone_script:
   - git clone -q --recursive --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
