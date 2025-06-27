@@ -6,7 +6,7 @@ environment:
   MINGW_PREFIX: C:\msys64\mingw64
 
 install:
-  - pacman -S --noconfirm --needed base-devel autoconf pkgconf
+  - pacman -S --noconfirm --needed base-devel automake autoconf pkgconf
   - where pkgconf
   - where autoreconf
 
