@@ -10,6 +10,7 @@ install:
   - where pkgconf
   - where autoreconf
   - where gcc
+  - where ccache
 
 clone_script:
   - git config --global core.autocrlf false
@@ -18,4 +19,4 @@ clone_script:
 
 build_script:
   - mklink /D msys64 C:\msys64
-  - media-autobuild_suite.bat
+  # - media-autobuild_suite.bat
