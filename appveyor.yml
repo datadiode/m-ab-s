@@ -29,4 +29,4 @@ clone_script:
 
 build_script:
   - mklink /D msys64 C:\msys64
-  # - media-autobuild_suite.bat
+  - media-autobuild_suite.bat
