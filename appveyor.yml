@@ -11,6 +11,7 @@ install:
   - where autoreconf
   - where gcc
   - where ccache
+  - for %%c in (c++ cc cpp gcc g++ i686-pc-msys-g++ i686-pc-msys-c++ i686-pc-msys-gcc i686-w64-mingw32-g++ i686-w64-mingw32-c++ i686-w64-mingw32-gcc x86_64-pc-msys-g++ x86_64-pc-msys-c++ x86_64-pc-msys-gcc x86_64-w64-mingw32-g++ x86_64-w64-mingw32-c++ x86_64-w64-mingw32-gcc) do mklink "C:\msys64\usr\lib\ccache\bin\%%c.exe" "C:\msys64\usr\bin\ccache.exe"
 
 clone_script:
   - git config --global core.autocrlf false
