@@ -9,6 +9,7 @@ install:
   - pacman -S --noconfirm --needed base-devel gtk-doc libtool automake autoconf pkgconf
   - where pkgconf
   - where autoreconf
+  - where gcc
 
 clone_script:
   - git config --global core.autocrlf false
