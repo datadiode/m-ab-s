@@ -1764,7 +1764,11 @@ if not exist %instdir%\mintty.lnk (
     echo.-------------------------------------------------------------------------------
     echo.critical updates
     echo.-------------------------------------------------------------------------------
-    pacman -S --needed --ask=20 --noconfirm --asdeps bash pacman msys2-runtime
+    pacman -S --needed --ask=20 --noconfirm --asdeps bash pacman msys2-runtime ccache base-devel gtk-doc libtool automake autoconf pkgconf mingw-w64-cross-gcc
+    where pkgconf
+    where autoreconf
+    where gcc
+    where ccache
 
     echo.-------------------------------------------------------------------------------
     echo.second update
