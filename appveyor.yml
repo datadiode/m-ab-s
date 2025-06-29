@@ -5,7 +5,7 @@ environment:
   PATH: $(PATH);C:\msys64\usr\bin;C:\msys64\mingw64\bin;C:\msys64\opt\bin
   MINGW_PREFIX: C:\msys64\mingw64
 
-# install:
+install:
   # - curl -O http://repo.msys2.org/msys/x86_64/msys2-keyring-r21.b39fb11-1-any.pkg.tar.xz
   # - curl -O http://repo.msys2.org/msys/x86_64/msys2-keyring-r21.b39fb11-1-any.pkg.tar.xz.sig
   # - pacman-key --verify msys2-keyring-r21.b39fb11-1-any.pkg.tar.xz.sig
@@ -15,8 +15,9 @@ environment:
   # - mkdir "C:\msys64\usr\lib\ccache"
   # - mkdir "C:\msys64\usr\lib\ccache\bin"
   # - pacman -S --noconfirm --needed base-devel gtk-doc libtool automake autoconf pkgconf ccache mingw-w64-cross-gcc
+  - pacman -S --noconfirm --needed autoconf
   # - where pkgconf
-  # - where autoreconf
+  - where autoreconf
   # - where gcc
   # - where ccache
   # - dir "C:\msys64\usr\lib\ccache\bin"
